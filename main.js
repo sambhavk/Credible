@@ -15,18 +15,20 @@ firebase.init();
 let timerid = setInterval(call, 3000);
 
 function call() {
-    let MsgData, MsgFrom, MsgTo, MsgTopic, Msgkeys, count = 10;
+    let MsgData, MsgFrom, MsgTo, MsgTopic, Msgkeys, count = 17;
     recv.msg(function (body, to, from) {
         MsgData = body.messages[0].body; MsgFrom = from; MsgTo = to;
-        if (MsgTo == "whatsapp:+14155238886") {
-            id = count + 1;
-            count = "M" + id;
-            console.log("==> " + new Date().toLocaleTimeString() + " Message Body= " + MsgData);
-            console.log("==> " + new Date().toLocaleTimeString() + " Message Received from= " + MsgFrom);
-            processing(MsgData, MsgFrom, MsgTo, MsgTopic, Msgkeys, count);
+        if (MsgData != "join mountain-weather") {
+            if (MsgTo == "whatsapp:+14155238886") {
+                id = count + 1;
+                count = "M" + id;
+                console.log("==> " + new Date().toLocaleTimeString() + " Message Body= " + MsgData);
+                console.log("==> " + new Date().toLocaleTimeString() + " Message Received from= " + MsgFrom);
+                processing(MsgData, MsgFrom, MsgTo, MsgTopic, Msgkeys, count);
+            }
+            else
+                return;
         }
-        else
-            return;
     })
 }
 
@@ -107,7 +109,7 @@ function ManualScreening(MsgData, MsgFrom, MsgTopic, count) {
                     heroes[j].heroid = data[i].HERO_ID;
                     heroes[j].number = "whatsapp:" + data[i].WHATSAPP_NO;
                 }
-                let url = `https://heroresponse-f4f71.web.app/?${count}&${heroes[j].heroid}`;
+                let url = `https://heroresponse-f4f71.web.app/?mid=${count}&hid=${heroes[j].heroid}`;
                 send.post(`Hello Hero!!\nCredible Network asks for your help.\nPlease review the below claim -\n${MsgData}\nSubmit your response here -\n\n${url}`, 0, heroes[j].number);
                 i = i - 1;
                 j = j + 1
