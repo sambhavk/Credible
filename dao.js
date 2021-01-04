@@ -1,12 +1,10 @@
-var mysql = require('mysql');
+const { Client } = require('pg');
 
-var con = mysql.createConnection({
-    host: "127.0.0.1",
-    user: "root",
-    password: "0801",
-    port: 3306,
-    insecureAuth: true,
-    database: "abc"
+const con = new Client({
+    connectionString: '<your DB URL>'
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
 
 module.exports = {
@@ -18,7 +16,7 @@ module.exports = {
     },
 
     insertMsg: function (count, msg, topic, keywords) {
-        let sql = "insert into messages(MSG_ID,MESSAGE,KEYWORDS,TOPIC,LANGUAGE) VALUES ('" + count + "','" + msg + "','" + keywords + "','" + topic + "','English')";
+        let sql = "insert into messages(MSG_ID,MESSAGE,KEYWORDS,TOPIC,LANGUAGE) VALUES (" + count + ",'" + msg + "','" + keywords + "','" + topic + "','English');";
         con.query(sql, function (err) {
             if (err) throw err;
             console.log("==> " + new Date().toLocaleTimeString() + " 1 record inserted in messages Table");
@@ -28,7 +26,7 @@ module.exports = {
     fetch: function (sql, callback) {
         con.query(sql, function (err, result) {
             if (err) throw err;
-            callback(result);
+            callback(result.rows);
         })
     }
 }

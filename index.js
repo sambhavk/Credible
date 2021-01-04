@@ -5,10 +5,10 @@ module.exports = {
         let options = {
             'method': 'GET',
             'hostname': 'api.twilio.com',
-            'path': '/2010-04-01/Accounts/AC87deced8b9f6e9fd8b1c9ae94696c36d/Messages.json',
+            'path': '/2010-04-01/Accounts/<sid>/Messages.json',
             'rejectUnauthorized': false,
             'headers': {
-                'Authorization': 'Basic QUM4N2RlY2VkOGI5ZjZlOWZkOGIxYzlhZTk0Njk2YzM2ZDpiZWViNTMwYzg5MjJiN2U1NTE5OGMxZTc3MjBjOGRkZA==',
+                'Authorization': '<api key>'
                 'Cookie': 'BCSI-CS-27c3ca7727ed0702=1',
                 'Connection': 'keep-alive'
             }

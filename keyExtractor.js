@@ -8,7 +8,7 @@ module.exports = {
             'path': '/v3/extractors/ex_YCya9nrn/extract/',
             'rejectUnauthorized': false,
             'headers': {
-                'Authorization': 'Token 3be945e0e9c5a1f16556c9fb0a3e1d1a12c797fd',
+                'Authorization': '<api key>',
                 'Content-Type': 'application/json',
                 'Cookie': 'BCSI-CS-27c3ca7727ed0702=1'
             }

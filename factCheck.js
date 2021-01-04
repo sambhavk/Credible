@@ -2,7 +2,7 @@ module.exports = {
     query: function (query, callback) {
         console.log("==> " + new Date().toLocaleTimeString() + " Inside factCheck/query()");
         const https = require('https')
-        const url = `https://factchecktools.googleapis.com/v1alpha1/claims:search?key=AIzaSyBUCu4ClBlqTboY9EYpCNmcwuN62b7U6No&query=${query}`
+        const url = `https://factchecktools.googleapis.com/v1alpha1/claims:search?key=<api key>&query=${query}`
 
         const req = https.request(url, (res) => {
             let chunks = [];

@@ -7,9 +7,9 @@ module.exports = {
             'method': 'POST',
             'hostname': 'api.twilio.com',
             'rejectUnauthorized': false,
-            'path': '/2010-04-01/Accounts/AC87deced8b9f6e9fd8b1c9ae94696c36d/Messages.json',
+            'path': '/2010-04-01/Accounts/<sid>/Messages.json',
             'headers': {
-                'Authorization': 'Basic QUM4N2RlY2VkOGI5ZjZlOWZkOGIxYzlhZTk0Njk2YzM2ZDpiZWViNTMwYzg5MjJiN2U1NTE5OGMxZTc3MjBjOGRkZA==',
+                'Authorization': '<api key>',
                 'Content-Type': 'application/x-www-form-urlencoded',
                 'Cookie': 'BCSI-CS-56b718e4a1eba607=1',
                 'Connection': 'keep-alive'
