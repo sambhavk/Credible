@@ -9,3 +9,4 @@ Congrats!! you are part of Credible Network.
 Send any fact you want to check.
 
 Credible Website: https://credible-38f19.web.app/
+For more information regarding the project and its algorithm: https://devpost.com/software/credible-9ix5dh
